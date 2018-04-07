@@ -1,4 +1,4 @@
-from setuptools import setup, find_packages
+from setuptools import setup
 from codecs import open
 from os import path
 
@@ -9,7 +9,7 @@ with open(path.join(here, 'Readme.rst'), encoding='utf-8') as f:
 setup(
     name='serius',
 
-    version='1.0.0',
+    version='1.0.6',
 
     description='Microservice Docker DNS for Local Linux',
 
@@ -27,7 +27,7 @@ setup(
 
     keywords='dns docker python microservices',
 
-    packages=find_packages(),
+    packages=["serius"],
 
     install_requires=['logging', 'docker'],
 )
