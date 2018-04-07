@@ -7,7 +7,7 @@ import os
 import os.path
 from shutil import copyfile
 import sys
-from thread.timer.repeatedTimer import repeatedTimer
+from thread.repeatedTimer import repeatedTimer
 import watcher.dockerWatcher as dockerWatcher
 
 # Host Files
