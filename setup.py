@@ -16,12 +16,14 @@ setup(
     long_description=long_description,
 
     entry_points={
-            "console_scripts": ['serius = serius:cli']
+            "console_scripts": ['serius = serius.serius:cli']
     },
 
     url='https://github.com/MOXGA-OSS/gamer-serius',
 
     author='GAMER',
+
+    author_email = 'oamoam@moxga.com',
 
     keywords='dns docker python microservices',
 
