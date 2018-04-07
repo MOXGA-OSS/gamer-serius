@@ -1,0 +1,14 @@
+{
+ "services": {
+    "mysql": {
+        "dockerHost": "127.0.0.1",
+        "dockerPort": 2375,
+        "image": "mysql"
+    },
+    "nginx": {
+        "dockerHost": "127.0.0.1",
+        "dockerPort": 2375,
+        "image": "nginx"
+    }
+  }
+}
