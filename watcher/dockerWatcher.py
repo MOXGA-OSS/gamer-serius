@@ -14,4 +14,4 @@ def watch(serviceKey, dockerHost, dockerPort, image):
 
         serviceIpAddress = next( iter(serviceNetwork.values()))["IPAddress"]
 
-        serviceIpAddresses.append(serviceKey+"-service "+serviceIpAddress)
+        serviceIpAddresses.append(serviceIpAddress+" "+serviceKey+"-service")
