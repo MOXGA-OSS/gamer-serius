@@ -4,7 +4,7 @@ serviceIpAddresses = []
 
 def watch(serviceKey, dockerHost, dockerPort, image):
 
-   dockerClient = docker.from_env()
+   dockerClient = docker.DockerClient(base_url="tcp://"+dockerHost+":"+str(dockerPort))
 
    service = dockerClient.containers.list(filters={"ancestor": image})
 
