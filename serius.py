@@ -94,7 +94,7 @@ if len(seriusArgs) == 3:
 
             log.info("Resolving service Docker IPs ...")
 
-            timer = repeatedTimer(configFileJson["watchInterval"], resolveDockerIPToDomain, configFileJson)
+            timer = rpTimer(configFileJson["watchInterval"], resolveDockerIPToDomain, configFileJson)
 
     else:
         
