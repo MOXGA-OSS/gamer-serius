@@ -26,6 +26,7 @@ To install Serius to your projects, you have to clone this project and run chmod
 
 ```shell
 $ git clone https://github.com/MOXGA-OSS/gamer-serius.git
+$ cd gamer-serius
 $ chmod u+x serius.py
 ```
 
