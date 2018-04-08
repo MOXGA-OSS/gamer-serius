@@ -22,12 +22,10 @@ image - a service Docker image
 
 ## Installing Serius 
 
-To install Serius to your projects, you have to clone this project and run chmod to serius.py:
+To install Serius to your projects, you have to run pip install:
 
 ```shell
-$ git clone https://github.com/MOXGA-OSS/gamer-serius.git
-$ cd gamer-serius
-$ chmod u+x serius.py
+$ pip install serius
 ```
 
 ## How to use Serius?
