@@ -12,6 +12,8 @@ At [GAMER](https://gamer.in.th), we use Serius to address Docker IP recognitions
 
 watchInterval - time in seconds to watch service Dockers
 
+watchType - type to watch (docker or rancher)
+
 ### Service Section
 
 dockerHost - a service Docker host IP

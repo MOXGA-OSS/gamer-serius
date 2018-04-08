@@ -17,6 +17,8 @@ Configurations
 
 watchInterval - time in seconds to watch service Dockers
 
+watchType - type to watch (docker or rancher)
+
 Service Section
 ~~~~~~~~~~~~~~~
 
