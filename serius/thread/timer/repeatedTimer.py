@@ -1,7 +1,7 @@
 import threading 
 import time
 
-class rpTimer(object):
+class repeatedTimer(object):
   def __init__(self, interval, function, *args, **kwargs):
     self._timer = None
     self.interval = interval

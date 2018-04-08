@@ -1,5 +1,6 @@
 {
  "watchInterval": 5,
+ "watchType": "docker",
  "services": {
     "mysql": {
         "dockerHost": "127.0.0.1",

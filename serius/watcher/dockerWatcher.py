@@ -1,6 +1,5 @@
 import docker
-
-serviceIpAddresses = []
+from serius import serius
 
 def watch(serviceKey, dockerHost, dockerPort, image):
 
@@ -14,4 +13,4 @@ def watch(serviceKey, dockerHost, dockerPort, image):
 
         serviceIpAddress = next( iter(serviceNetwork.values()))["IPAddress"]
 
-        serviceIpAddresses.append(serviceIpAddress+" "+serviceKey+"-service")
+        serius.serviceIpAddresses.append(serviceIpAddress+" "+serviceKey+"-service")
