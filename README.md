@@ -33,7 +33,7 @@ $ pip install serius
 ## How to use Serius?
 
 ```shell
-$ ./serius.py -c serius.conf.json
+$ serius -c serius.conf.json
 ```
 
 -c is for a Serius config file.
