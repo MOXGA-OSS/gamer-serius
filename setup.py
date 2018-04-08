@@ -9,7 +9,7 @@ with open(path.join(here, 'Readme.rst'), encoding='utf-8') as f:
 setup(
     name='serius',
 
-    version='1.0.7',
+    version='1.0',
 
     description='Microservice Docker DNS for Local Linux',
 
