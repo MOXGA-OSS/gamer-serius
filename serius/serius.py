@@ -1,3 +1,4 @@
+import collections
 import json
 import logging
 import os
@@ -17,8 +18,11 @@ hostsFile = "/etc/hosts"
 hostsWrite = homePath+"/serius/hosts.write"
 hostsBackup = homePath+"/serius/hosts.backup"
 
-# Service IP Address
+# Service IP Addresses
 serviceIpAddresses = []
+
+# Service Old IP Addresses
+serviceOldIpAddresses = []
 
 # Loggings
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(name)s.%(funcName)s +%(lineno)s: %(levelname)-3s [%(process)d] %(message)s")
@@ -40,6 +44,10 @@ def resolveDockerIPToDomain(configFileJson):
               file.close()
 
         copyfile(hostsFile, hostsWrite)
+
+    global serviceIpAddresses
+
+    serviceIpAddresses = []
 
     for serviceKey in configFileJson["services"].keys():
 
@@ -63,21 +71,34 @@ def resolveDockerIPToDomain(configFileJson):
 
     copyfile(hostsWrite, hostsBackup)
 
-    log.info("Map "+serviceKey+" Docker IP to Domain")
+    global serviceOldIpAddresses
 
-    global serviceIpAddresses
+    log.info("Checking if service IP addresses have been changed ...")
 
-    for serviceIpAddress in serviceIpAddresses:
+    compare = lambda x, y: collections.Counter(x) == collections.Counter(y)
 
-        with open(hostsWrite, "a") as file:
+    if not compare(serviceIpAddresses, serviceOldIpAddresses):
 
-            file.write(serviceIpAddress+"\n")
+        log.info("Updated the host DNS")
 
-            file.close()
+        for serviceIpAddress in serviceIpAddresses:
 
-    copyfile(hostsWrite, hostsFile)
+            with open(hostsWrite, "a") as file:
 
-    serviceIpAddresses = []
+                file.write(serviceIpAddress+"\n")
+
+                file.close()
+
+        copyfile(hostsWrite, hostsFile)
+
+        serviceOldIpAddresses = []
+
+        serviceOldIpAddresses = serviceIpAddresses[:]
+
+    else:
+
+        log.info("Nothing changed")
+
 
 # Main
 
