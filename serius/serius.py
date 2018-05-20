@@ -83,7 +83,7 @@ def resolveDockerIPToDomain(configFileJson):
 
         for serviceIpAddress in serviceIpAddresses:
 
-            with open(hostsWrite, "a") as file:
+            with open(hostsWrite, "w") as file:
 
                 file.write(serviceIpAddress+"\n")
 
