@@ -9,6 +9,7 @@ from serius.thread.timer.repeatedTimer import repeatedTimer
 import serius.watcher.dockerWatcher as dockerWatcher
 import serius.watcher.rancherWatcher as rancherWatcher
 import sys
+from threading import Lock
 
 # Home Path
 homePath = str(Path.home())
@@ -28,8 +29,13 @@ serviceOldIpAddresses = []
 logging.basicConfig(level=logging.INFO, format="%(asctime)s %(name)s.%(funcName)s +%(lineno)s: %(levelname)-3s [%(process)d] %(message)s")
 log = logging.getLogger('Serius')
 
+# Lock
+lock = Lock()
+
 # IP Resolver
 def resolveDockerIPToDomain(configFileJson):
+
+    lock.acquire()
 
     if os.path.exists(hostsBackup):
         
@@ -99,6 +105,7 @@ def resolveDockerIPToDomain(configFileJson):
 
         log.info("Nothing changed")
 
+    lock.release()
 
 # Main
 
